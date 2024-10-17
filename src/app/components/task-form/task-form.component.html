@@ -14,7 +14,7 @@
   <label class="task_form__label">
     <p class="task_form__input_title">Add Status:</p>
     <select formControlName="status">
-      <option *ngFor="let item of starusService.status" value="item">
+      <option *ngFor="let item of starusService.status" [value]="item">
         {{ item }}
       </option>
     </select>
