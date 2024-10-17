@@ -16,6 +16,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 // import { CreateTaskModule } from './pages/create-task/create-task.module';
 import { HomeModule } from './pages/home/home.module';
+import { DynamicRouteGuard } from './guards/dynamic-route.guard';
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { HomeModule } from './pages/home/home.module';
     // CreateTaskModule,
     HomeModule,
   ],
-  providers: [],
+  providers: [DynamicRouteGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

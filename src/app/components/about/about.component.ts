@@ -7,22 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
   ngOnInit() {
-    console.log('dsdsds')
-    this.startWebWorker();
-  }
+    const worker = new Worker(new URL('./test232.worker', import.meta.url));
 
-  startWebWorker() {
-    if (typeof Worker !== 'undefined') {
-      // Создаем новый воркер
-      const worker = new Worker(new URL('./about.worker', import.meta.url));
-      worker.onmessage = ({ data }) => {
-        console.log('Данные от воркера:', data);
-      };
-      worker.postMessage(2000000);
-    } else {
-      // Браузер не поддерживает Web Workers
-      console.log('Web Worker не поддерживается');
-    }
+    worker.onmessage = ({ data }) => {
+      console.log(`page got message: ${data}`);
+    };
+
+    worker.postMessage('hello');
   }
-  
 }

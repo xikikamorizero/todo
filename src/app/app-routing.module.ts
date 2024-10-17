@@ -5,6 +5,7 @@ import { CreateTaskComponent } from './pages/create-task/create-task.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './components/about/about.component';
+import { DynamicRouteGuard } from './guards/dynamic-route.guard';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
   {
     path: 'editTask/:id',
     component: EditTaskComponent,
+    canActivate: [DynamicRouteGuard]
   },
   {
     path: 'about',
