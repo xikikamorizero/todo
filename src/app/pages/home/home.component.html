@@ -1,0 +1,17 @@
+<div class="home">
+  <app-task-actions-panel></app-task-actions-panel>
+
+  <app-grid-container *ngIf="taskService.taskList.length > 0; else noResult">
+    <app-card
+      *ngFor="let item of taskService.taskList; let idx = index"
+      [id]="idx"
+      [title]="item.title"
+      [description]="item.description"
+      [date]="item.date"
+      [status]="item.status"
+      (taskSubmitted)="taskService.deleteTask($event)"
+    ></app-card>
+  </app-grid-container>
+
+  <ng-template #noResult> No Task </ng-template>
+</div>

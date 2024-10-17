@@ -1,0 +1,30 @@
+<h1 class="title">Task:</h1>
+<form
+  class="search_and_filter_form"
+  [formGroup]="form"
+
+>
+  <label class="search_and_filter_form__label">
+    <input
+      class="search_and_filter_form__search_input"
+      placeholder="Search..."
+      formControlName="search_keyword"
+    />
+  </label>
+  <label class="search_and_filter_form__label">
+    <select
+      class="search_and_filter_form__filter_select"
+      formControlName="filter"
+    >
+      <option *ngFor="let item of statusService.status" value="item">
+        {{ item }}
+      </option>
+    </select>
+  </label>
+  <button type="submit" class="search_and_filter_form__submit">Search</button>
+  <a class="search_and_filter_form__link" routerLink="/createTask"
+    ><button type="button" class="search_and_filter_form__submit">
+      Add Task
+    </button></a
+  >
+</form>

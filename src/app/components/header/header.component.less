@@ -1,0 +1,47 @@
+:host {
+  min-width: 100%;
+}
+.container {
+  display: flex;
+}
+.header {
+  width: 100%;
+  .container;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  &__content {
+    width: var(--container-width);
+    max-width: var(--container-max-width);
+    height: 60px;
+    background-color: black;
+    .container;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__name{
+    text-decoration: none;
+    color:white;
+    font-size: 30px;
+  }
+  &__logo {
+    width: 100px;
+    &_visible {
+      opacity: 0;
+    }
+  }
+  &__navbar {
+    width: 50%;
+    .container;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__link {
+    color: white;
+    text-decoration: none;
+    &_active {
+      filter: drop-shadow(2);
+      opacity: 0.5;
+    }
+  }
+}

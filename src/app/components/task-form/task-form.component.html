@@ -1,0 +1,24 @@
+<form class="task_form" [formGroup]="form" (submit)="onSubmit()">
+  <label class="task_form__label">
+    <p class="task_form__input_title">Add Tile:</p>
+    <input class="task_form__input" formControlName="title" />
+  </label>
+  <label class="task_form__label">
+    <p class="task_form__input_title">Add Description:</p>
+    <textarea class="task_form__input" formControlName="description"></textarea>
+  </label>
+  <label class="task_form__label">
+    <p class="task_form__input_title">Add Date:</p>
+    <input type="date" class="task_form__input" formControlName="date" />
+  </label>
+  <label class="task_form__label">
+    <p class="task_form__input_title">Add Status:</p>
+    <select formControlName="status">
+      <option *ngFor="let item of starusService.status" value="item">
+        {{ item }}
+      </option>
+    </select>
+  </label>
+
+  <button type="submit">Create Tesk</button>
+</form>

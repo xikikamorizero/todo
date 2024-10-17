@@ -1,0 +1,11 @@
+<div class="edit_task">
+    <h1 class="edit_task__title">Edit Task #{{taskId}}</h1>
+  <app-task-form
+    (taskSubmitted)="editTask($event)"
+    [title]="task?.title"
+    [description]="task?.description"
+    [date]="task?.date"
+    [status]="task?.status"
+  >
+  </app-task-form>
+</div>
