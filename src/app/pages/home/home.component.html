@@ -1,7 +1,7 @@
 <div class="home">
   <app-task-actions-panel (taskSearch)="filterTask($event)"></app-task-actions-panel>
 
-  <app-grid-container *ngIf="taskService.taskList.length > 0; else noResult">
+  <app-grid-container *ngIf="tasklist.length > 0; else noResult">
     <app-card
       *ngFor="let item of tasklist; let idx = index"
       [id]="idx"

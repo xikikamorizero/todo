@@ -5,7 +5,8 @@ import { TaskStatus } from '../types/types';
   providedIn: 'root',
 })
 export class StatusService {
-  status: TaskStatus[] = [
+  status: (TaskStatus | 'ALL')[] = [
+    'ALL',
     'To Do',
     'Pending Review',
     'On Hold',

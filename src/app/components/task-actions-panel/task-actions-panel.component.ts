@@ -4,6 +4,16 @@ import { LocalTaskService } from 'src/app/service/local-task.service';
 import { StatusService } from 'src/app/service/status.service';
 import { TaskStatus, TaskType } from 'src/app/types/types';
 
+type NewStatus =
+  | 'To Do'
+  | 'In Progress'
+  | 'Completed'
+  | 'On Hold'
+  | 'Canceled'
+  | 'Pending Review'
+  | 'Deferred'
+  | 'ALL';
+
 @Component({
   selector: 'app-task-actions-panel',
   templateUrl: './task-actions-panel.component.html',
@@ -16,7 +26,7 @@ export class TaskActionsPanelComponent {
   }>();
   form: FormGroup = new FormGroup({
     search_keyword: new FormControl(''),
-    filter: new FormControl<TaskStatus>('To Do', Validators.required),
+    filter: new FormControl<NewStatus>('ALL', Validators.required),
   });
 
   constructor(protected statusService: StatusService) {}
