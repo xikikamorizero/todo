@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
   }
 
   filterTask(data: { search_keyword: string; filter: TaskStatus }) {
-    console.log('ХУли')
     if (this.worker) {
       this.worker.postMessage([
         data.filter,
