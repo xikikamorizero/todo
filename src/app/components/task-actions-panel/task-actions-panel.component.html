@@ -17,7 +17,7 @@
       class="search_and_filter_form__filter_select"
       formControlName="filter"
     >
-      <option *ngFor="let item of statusService.status" value="item">
+      <option *ngFor="let item of statusService.status" [value]="item">
         {{ item }}
       </option>
     </select>
