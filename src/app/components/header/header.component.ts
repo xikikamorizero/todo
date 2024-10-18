@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.less'],
 })
 export class HeaderComponent {
-  constructor() {}
+  isAuth: boolean = false;
+  constructor(protected authService:AuthService) {}
+
+  ngOnInit(): void {
+    this.authService.isAuth$.subscribe((authStatus) => {
+      this.isAuth = authStatus;
+    });
+  }
+
+  logOut(){
+    this.authService.logout()
+  }
 }

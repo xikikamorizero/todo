@@ -18,6 +18,12 @@ import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 import { HomeModule } from './pages/home/home.module';
 import { DynamicRouteGuard } from './guards/dynamic-route.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { AuthGuard } from './guards/auth.guard';
+import { NoAuthGuard } from './guards/no-Auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +48,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgbModule,
     HomeModule,
   ],
-  providers: [DynamicRouteGuard],
+  providers: [DynamicRouteGuard, AuthGuard, NoAuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

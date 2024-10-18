@@ -6,6 +6,7 @@
 }
 .header {
   width: 100%;
+  background-color: black;
   .container;
   justify-content: center;
   align-items: center;
@@ -14,14 +15,13 @@
     width: var(--container-width);
     max-width: var(--container-max-width);
     height: 60px;
-    background-color: black;
     .container;
     justify-content: space-between;
     align-items: center;
   }
-  &__name{
+  &__name {
     text-decoration: none;
-    color:white;
+    color: white;
     font-size: 30px;
   }
   &__logo {
@@ -43,5 +43,8 @@
       filter: drop-shadow(2);
       opacity: 0.5;
     }
+  }
+  &__logout{
+    color: black;
   }
 }

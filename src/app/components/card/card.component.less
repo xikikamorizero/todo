@@ -16,8 +16,15 @@
   &__title {
     font-size: 20px;
   }
+  &__description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+  }
   &__button {
     &--delete {
+      width: 100%;
       background-color: rgba(253, 5, 5, 0.719);
       border-radius: 30px;
     }

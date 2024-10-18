@@ -1,11 +1,15 @@
 <div class="card">
-  <p class="card__title">{{ title }}</p>
-  <p class="card__description">{{ description }}</p>
-  <p class="card__create_date">{{ date }}</p>
-  <p class="card__create_status">{{ status }}</p>
+  <div class="card__content">
+    <p class="card__title">{{ title }}</p>
+    <p class="card__description">{{ description }}</p>
+    <p class="card__create_status">{{ status | custom }}</p>
+    <p class="card__create_date">{{ date }}</p>
+  </div>
 
-  <a [routerLink]="['/editTask', id]" class="card__link"><button class="card__button--edit">Edit</button></a>
-  <button class="card__button--delete" (click)="deleteCard()">Delete</button>
+  <div class="card__сontrol_panel">
+    <a [routerLink]="['/editTask', id]" class="card__link"
+      ><button class="card__button--edit">Edit</button></a
+    >
+    <button class="card__button--delete" (click)="deleteCard()">Delete</button>
+  </div>
 </div>
-
-

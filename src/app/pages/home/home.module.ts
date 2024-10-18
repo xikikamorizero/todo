@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { TaskActionsPanelComponent } from 'src/app/components/task-actions-panel/task-actions-panel.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomPipe } from 'src/app/pipes/custom.pipe';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GridContainerComponent,
     CardComponent,
     TaskActionsPanelComponent,
+    CustomPipe
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   providers: [],

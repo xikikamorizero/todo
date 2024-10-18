@@ -27,6 +27,8 @@ export class TaskFormComponent implements OnInit {
 
   form!: FormGroup;
 
+  currentDate = new Date();
+
   constructor(protected starusService: StatusService) {}
 
   ngOnInit(): void {
@@ -36,13 +38,14 @@ export class TaskFormComponent implements OnInit {
         this.description ? this.description : '',
         Validators.required
       ),
-      date: new FormControl(this.date ? this.date : '2024-10-08'),
+      date: new FormControl(this.date ? this.date : this.currentDate.toISOString().slice(0, 10)),
       status: new FormControl<TaskStatus>(this.status ? this.status : 'To Do'),
     });
+
+    console.log(new Date().valueOf)
   }
 
   onSubmit() {
     this.taskSubmitted.next(this.form.value);
-    console.log(this.form.value);
   }
 }

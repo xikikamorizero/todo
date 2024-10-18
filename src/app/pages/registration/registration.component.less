@@ -1,0 +1,28 @@
+.flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:host {
+  width: 100%;
+  height: calc(100vh - 60px - 22.5px);
+  .flex_center;
+  color: black;
+}
+
+.registration_container {
+  width: max-content;
+  height: max-content;
+  background-color: white;
+  border-radius: 30px;
+  border: 1px solid silver;
+  padding: 50px 50px;
+
+  .flex_center;
+  flex-direction: column;
+
+  &__link {
+    width: 100%;
+    margin-top: 30px;
+  }
+}

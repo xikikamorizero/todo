@@ -1,5 +1,6 @@
 <div class="header">
   <div class="header__content">
     <a routerLink="/" class="header__name">ToDo List</a>
+    <button class="header__logout" *ngIf="isAuth" (click)="logOut()">Logout</button>
   </div>
 </div>

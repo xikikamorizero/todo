@@ -1,0 +1,5 @@
+<div class="login_container">
+  <h1 class="login_title">Login</h1>
+  <app-auth-form title="Login" [loading]="loading" (authSubmitted)="onLogin($event)"></app-auth-form>
+  <a class="login_container__link" routerLink="/registration">no acc ?</a>
+</div>

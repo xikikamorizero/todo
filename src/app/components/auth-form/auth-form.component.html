@@ -1,0 +1,65 @@
+<form class="auth_form" [formGroup]="form" (submit)="onSubmit()">
+  <label class="auth_form__label">
+    <div class="auth_form__label_content">
+      <p>Email:</p>
+      <input class="auth_form__input" formControlName="email" />
+    </div>
+    <p
+      class="auth_form__message"
+      *ngIf="form.get('email')?.errors && form.get('email')?.touched"
+    >
+      <span *ngIf="form.get('email')?.errors?.['required']"
+        >Email is required.</span
+      >
+      <span *ngIf="form.get('email')?.errors?.['email']"
+        >Invalid email format.</span
+      >
+    </p>
+  </label>
+  <label class="auth_form__label">
+    <div class="auth_form__label_content">
+      <p>Password:</p>
+      <input
+        type="password"
+        class="auth_form__input"
+        formControlName="password"
+      />
+    </div>
+    <p
+      class="auth_form__message"
+      *ngIf="form.get('password')?.errors && form.get('password')?.touched"
+    >
+      <span *ngIf="form.get('password')?.errors?.['required']"
+        >Password is required.</span
+      >
+      <span *ngIf="form.get('password')?.errors?.['minlength']"
+        >Password must be at least 4 characters.</span
+      >
+    </p>
+  </label>
+
+  <label class="auth_form__label" *ngIf="title === 'Registration'">
+    <div class="auth_form__label_content">
+      <p>Confirm Password:</p>
+      <input
+        type="password"
+        class="auth_form__input"
+        formControlName="confirmPass"
+      />
+    </div>
+    <p
+      class="auth_form__message"
+      *ngIf="
+        form.get('confirmPass')?.errors && form.get('confirmPass')?.touched
+      "
+    >
+      <span *ngIf="form.get('confirmPass')?.errors?.['confirmPassword']"
+        >Passwords do not match.</span
+      >
+    </p>
+  </label>
+
+  <button type="submit" [disabled]="form.invalid || loading">
+    {{loading? 'Loading...': title}}
+   </button>
+</form>

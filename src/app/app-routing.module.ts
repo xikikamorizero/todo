@@ -6,24 +6,36 @@ import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { DynamicRouteGuard } from './guards/dynamic-route.guard';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { AuthGuard } from './guards/auth.guard';
+import { NoAuthGuard } from './guards/no-Auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'createTask',
     component: CreateTaskComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'editTask/:id',
     component: EditTaskComponent,
-    canActivate: [DynamicRouteGuard]
+    canActivate: [DynamicRouteGuard, AuthGuard],
   },
   {
-    path: 'about',
-    component: AboutComponent,
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [NoAuthGuard],
+  },
+  {
+    path: 'registration',
+    component: RegistrationComponent,
+    canActivate: [NoAuthGuard],
   },
   {
     path: '**',

@@ -13,3 +13,14 @@ export type TaskType = {
   date: string;
   status: TaskStatus;
 };
+
+export type AuthType = {
+  email: string;
+  password: string;
+  confirmPass: string;
+};
+
+export type User = {
+  email: string;
+  password: string;
+};
