@@ -1,15 +1,18 @@
 <div class="home">
-  <app-task-actions-panel (taskSearch)="filterTask($event)"></app-task-actions-panel>
+  <app-task-actions-panel
+    (taskSearch)="filterTask($event)"
+  ></app-task-actions-panel>
 
   <app-grid-container *ngIf="tasklist.length > 0; else noResult">
     <app-card
-      *ngFor="let item of tasklist; let idx = index"
+      *ngFor="let item of tasklist; let idx = index; trackBy: trackByFn"
       [id]="idx"
       [title]="item.title"
       [description]="item.description"
       [date]="item.date"
       [status]="item.status"
       (taskSubmitted)="deleteTask($event)"
+      @cardAnimation
     ></app-card>
   </app-grid-container>
 

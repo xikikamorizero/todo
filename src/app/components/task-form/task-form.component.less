@@ -7,11 +7,18 @@
 .task_form {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   &__label {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+  }
+  &__item_container {
+    display: flex;
     gap: 10px;
+  }
+  &__message {
+    color: red;
   }
   &__input {
     padding-left: 10px;
@@ -20,5 +27,8 @@
     font-size: 20px;
     margin: 0;
     padding: 0;
+  }
+  &__submit {
+    height: 30px;
   }
 }

@@ -2,7 +2,6 @@
 <form
   class="search_and_filter_form"
   [formGroup]="form"
-  (submit)="filterTask()"
 >
   <label class="search_and_filter_form__label">
     <input
@@ -22,7 +21,6 @@
       </option>
     </select>
   </label>
-  <button type="submit" class="search_and_filter_form__submit" [disabled]="form.invalid">Search</button>
   <a class="search_and_filter_form__link" routerLink="/createTask"
     ><button type="button" class="search_and_filter_form__submit">
       Add Task

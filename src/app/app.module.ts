@@ -17,7 +17,7 @@ import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 // import { CreateTaskModule } from './pages/create-task/create-task.module';
 import { HomeModule } from './pages/home/home.module';
 import { DynamicRouteGuard } from './guards/dynamic-route.guard';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { DynamicRouteGuard } from './guards/dynamic-route.guard';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -39,7 +40,6 @@ import { DynamicRouteGuard } from './guards/dynamic-route.guard';
     RouterOutlet,
     HighchartsChartModule,
     NgbModule,
-    // CreateTaskModule,
     HomeModule,
   ],
   providers: [DynamicRouteGuard],

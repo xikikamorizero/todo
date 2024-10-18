@@ -1,11 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalTaskService } from 'src/app/service/local-task.service';
 import { TaskStatus, TaskType } from 'src/app/types/types';
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less'],
+  animations: [
+    trigger('cardAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: '' }),
+        animate(
+          '300ms ease-out',
+          style({ opacity: 1, transform: '' })
+        ),
+      ]),
+      transition(':leave', [
+        animate(
+          '300ms ease-in',
+          style({ opacity: 0, transform: '' })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class HomeComponent implements OnInit {
   tasklist: TaskType[] = [];
@@ -28,6 +46,7 @@ export class HomeComponent implements OnInit {
   }
 
   filterTask(data: { search_keyword: string; filter: TaskStatus }) {
+    console.log('home', data);
     if (this.worker) {
       this.worker.postMessage([
         data.filter,
@@ -35,5 +54,8 @@ export class HomeComponent implements OnInit {
         data.search_keyword,
       ]);
     }
+  }
+  trackByFn(index: number) {
+    return index;
   }
 }

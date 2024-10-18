@@ -5,6 +5,7 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 import { StatusService } from 'src/app/service/status.service';
 import { TaskStatus, TaskType } from 'src/app/types/types';
@@ -30,8 +31,11 @@ export class TaskFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      title: new FormControl(this.title ? this.title : ''),
-      description: new FormControl(this.description ? this.description : ''),
+      title: new FormControl(this.title ? this.title : '', Validators.required),
+      description: new FormControl(
+        this.description ? this.description : '',
+        Validators.required
+      ),
       date: new FormControl(this.date ? this.date : '2024-10-08'),
       status: new FormControl<TaskStatus>(this.status ? this.status : 'To Do'),
     });

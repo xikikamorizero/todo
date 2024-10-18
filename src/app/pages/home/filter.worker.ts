@@ -3,6 +3,7 @@
 import { TaskType } from 'src/app/types/types';
 
 addEventListener('message', (e) => {
+  console.log(e.data)
   const orderProp: string = e.data[0];
   let taskArr = e.data[1];
   const searchKeyword = e.data[2].toLowerCase().trim();

@@ -1,24 +1,37 @@
 <form class="task_form" [formGroup]="form" (submit)="onSubmit()">
   <label class="task_form__label">
-    <p class="task_form__input_title">Add Tile:</p>
-    <input class="task_form__input" formControlName="title" />
+    <div class="task_form__item_container">
+      <p class="task_form__input_title">*Add Tile:</p>
+      <input class="task_form__input" formControlName="title" />
+    </div>
+    <div class="task_form__message" *ngIf="!form.get('title')?.valid && form.get('title')?.touched">Поле не может быть пустым</div>
   </label>
   <label class="task_form__label">
-    <p class="task_form__input_title">Add Description:</p>
-    <textarea class="task_form__input" formControlName="description"></textarea>
+    <div class="task_form__item_container">
+      <p class="task_form__input_title">*Add Description:</p>
+      <textarea
+        class="task_form__input"
+        formControlName="description"
+      ></textarea>
+    </div>
+    <div class="task_form__message" *ngIf="!form.get('description')?.valid && form.get('description')?.touched">Поле не может быть пустым</div>
   </label>
   <label class="task_form__label">
-    <p class="task_form__input_title">Add Date:</p>
-    <input type="date" class="task_form__input" formControlName="date" />
+    <div class="task_form__item_container">
+      <p class="task_form__input_title">Add Date:</p>
+      <input type="date" class="task_form__input" formControlName="date" />
+    </div>
   </label>
   <label class="task_form__label">
-    <p class="task_form__input_title">Add Status:</p>
-    <select formControlName="status">
-      <option *ngFor="let item of starusService.status" [value]="item">
-        {{ item }}
-      </option>
-    </select>
+    <div class="task_form__item_container">
+      <p class="task_form__input_title">Add Status:</p>
+      <select formControlName="status">
+        <option *ngFor="let item of starusService.status" [value]="item">
+          {{ item }}
+        </option>
+      </select>
+    </div>
   </label>
 
-  <button type="submit">Create Tesk</button>
+  <button type="submit" [disabled]="form.invalid" class="task_form__submit">Create Tesk</button>
 </form>
